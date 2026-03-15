@@ -8,6 +8,20 @@ The goal of this project is to design and execute API test scenarios for the Air
 
 ---
 
+## API Information
+
+The testing in this project was performed on the public AirportGap API.
+
+**Base URL**
+
+https://airportgap.com/api
+
+**API Documentation**
+
+https://airportgap.com/docs
+
+---
+
 ## API Endpoints Tested
 
 - POST /api/tokens
