@@ -1,0 +1,735 @@
+{
+  "info": {
+    "_postman_id": "8d7cc2ac-55f5-4fd0-a44e-dd85cf794c52",
+    "name": "AirportGap API Testing Portfolio Run",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "12979633"
+  },
+  "item": [
+    {
+      "name": "POST Generate Token Valid",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Login success\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response contains token\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.token).to.exist;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\" : \"test@airportgap.com\",\n    \"password\" : \"airportgappassword\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/tokens",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "tokens"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Generate Token Invalid",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Login failed\", function () {\r",
+              "    pm.response.to.have.status(401);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"invalid@test.com\",\r\n    \"password\": \"wrongpassword\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/tokens",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "tokens"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Favorites List",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response contains favorites data\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.data).to.exist;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/favorites",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Favorites Missing Token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Missing token\", function () {\r",
+              "    pm.response.to.have.status(401);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://airportgap.com/api/favorites",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Favorites Invalid Token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Invalid token\", function () {\r",
+              "    pm.response.to.have.status(401);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token invalidtoken123",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://airportgap.com/api/favorites",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Create Favorite",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Favorite created successfully\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.data).to.exist;\r",
+              "});\r",
+              "\r",
+              "var jsonData = pm.response.json();\r",
+              "var favoriteId = jsonData.data.id;\r",
+              "\r",
+              "pm.collectionVariables.set(\"favorite_id\", favoriteId);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n \"airport_id\": \"DOH\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/favorites",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Create Favorite Duplicate",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Favorite already created\", function () {\r",
+              "    pm.response.to.have.status(422);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n \"airport_id\": \"DOH\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/favorites",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Create Favorite Invalid Body",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Favorite create invalid\", function () {\r",
+              "    pm.response.to.have.status(422);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/favorites",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Favorite By ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Favorite details returned\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.data).to.exist;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://airportgap.com/api/favorites/{{favorite_id}}",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites",
+            "{{favorite_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Favorite Invalid ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Favorite invalid ID\", function () {\r",
+              "    pm.response.to.have.status(404);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://airportgap.com/api/favorites/55745",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites",
+            "55745"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PATCH Update Favorite Note",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Update note success\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n \"note\": \"updated favorite airport\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/favorites/{{favorite_id}}",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites",
+            "{{favorite_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PATCH Update Favorite Invalid Note",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Update note invalid\", function () {\r",
+              "    pm.response.to.have.status(400);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n \"note\": \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/favorites/{{favorite_id}}",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites",
+            "{{favorite_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE Favorite",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Delete favorite ID success\", function () {\r",
+              "    pm.response.to.have.status(204);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://airportgap.com/api/favorites/{{favorite_id}}",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites",
+            "{{favorite_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE Favorite Invalid ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"ID not found\", function () {\r",
+              "    pm.response.to.have.status(404);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/favorites/55745",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites",
+            "55745"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Favorites Response Structure",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response contains required fields\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.data).to.exist;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://airportgap.com/api/favorites",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "favorite_id",
+      "value": ""
+    }
+  ]
+}

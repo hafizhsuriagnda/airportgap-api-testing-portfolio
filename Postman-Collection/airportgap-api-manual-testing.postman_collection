@@ -1,0 +1,487 @@
+{
+  "info": {
+    "_postman_id": "d6e27216-2499-44c0-b6df-331735c1ee89",
+    "name": "AirportGap API Testing Portfolio",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "12979633"
+  },
+  "item": [
+    {
+      "name": "POST Generate Token Valid",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\" : \"test@airportgap.com\",\n    \"password\" : \"airportgappassword\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/tokens",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "tokens"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Generate Token Invalid",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"invalid@test.com\",\r\n    \"password\": \"wrongpassword\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/tokens",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "tokens"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Favorites List",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/favorites",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Favorites Missing Token",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://airportgap.com/api/favorites",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Favorites Invalid Token",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token invalidtoken123",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://airportgap.com/api/favorites",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Create Favorite",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n \"airport_id\": \"DOH\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/favorites",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Create Favorite Duplicate",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n \"airport_id\": \"DOH\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/favorites",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST Create Favorite Invalid Body",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/favorites",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Favorite By ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://airportgap.com/api/favorites/44639",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites",
+            "44639"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Favorite Invalid ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://airportgap.com/api/favorites/55745",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites",
+            "55745"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PATCH Update Favorite Note",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n \"note\": \"updated favorite airport\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/favorites/44639",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites",
+            "44639"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PATCH Update Favorite Invalid Note",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n \"note\": \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/favorites/44639",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites",
+            "44639"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE Favorite",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://airportgap.com/api/favorites/44639",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites",
+            "44639"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE Favorite Invalid ID",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://airportgap.com/api/favorites/55745",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites",
+            "55745"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Favorites Response Structure",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token 7NeEUdbsbU25Qdhg7Pe4h8ic",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://airportgap.com/api/favorites",
+          "protocol": "https",
+          "host": [
+            "airportgap",
+            "com"
+          ],
+          "path": [
+            "api",
+            "favorites"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
