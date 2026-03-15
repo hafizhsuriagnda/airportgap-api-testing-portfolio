@@ -70,7 +70,7 @@ All **15 test cases** were executed successfully and the API behaved according t
 ```
 airportgap-api-testing-portfolio
 │
-├── Bug_Evidence
+├── Evidence
 │   ├── API_Collection_Run_Details.png
 │   ├── API_Collection_Run_Summary.png
 │   ├── TC_API_01_Login_Success.png
