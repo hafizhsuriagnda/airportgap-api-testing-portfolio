@@ -1,10 +1,10 @@
 # AirportGap API Testing Portfolio
 
-This project demonstrates API testing using Postman on the public AirportGap API.
+This repository contains an API testing portfolio project performed on the public AirportGap API.
 
 ## Project Overview
 
-The goal of this project is to design and execute API test scenarios for the AirportGap API to validate authentication, favorites management, and response structure.
+The objective of this project is to design and execute API test scenarios to validate authentication, favorites management, and API response behavior.
 
 ---
 
