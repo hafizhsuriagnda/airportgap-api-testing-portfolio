@@ -22,6 +22,16 @@ https://airportgap.com/docs
 
 ---
 
+## Test Environment
+
+API Base URL: https://airportgap.com/api  
+API Documentation: https://airportgap.com/docs  
+Tool: Postman  
+Operating System: Windows 10  
+Execution Type: Manual API Testing + Postman Collection Runner
+
+---
+
 ## API Endpoints Tested
 
 - POST /api/tokens
