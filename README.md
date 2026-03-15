@@ -6,6 +6,8 @@ This project demonstrates API testing using Postman on the public AirportGap API
 
 The goal of this project is to design and execute API test scenarios for the AirportGap API to validate authentication, favorites management, and response structure.
 
+---
+
 ## API Endpoints Tested
 
 - POST /api/tokens
@@ -14,6 +16,8 @@ The goal of this project is to design and execute API test scenarios for the Air
 - GET /api/favorites/{id}
 - PATCH /api/favorites/{id}
 - DELETE /api/favorites/{id}
+
+---
 
 ## Test Coverage
 
@@ -32,11 +36,15 @@ Test scenarios include:
 - Delete operations
 - Response structure validation
 
+---
+
 ## Tools Used
 
 - Postman
 - Excel
 - JSON API
+
+---
 
 ## Test Artifacts
 
@@ -49,6 +57,41 @@ This repository contains:
 - Test Evidence (screenshots)
 - Postman Collections
 
+---
+
 ## Test Result
 
 All **15 test cases** were executed successfully and the API behaved according to the expected scenarios.
+
+---
+
+## Repository Structure
+
+```
+airportgap-api-testing-portfolio
+│
+├── Bug_Evidence
+│   ├── API_Collection_Run_Details.png
+│   ├── API_Collection_Run_Summary.png
+│   ├── TC_API_01_Login_Success.png
+│   ├── TC_API_02_Login_InvalidCredentials.png
+│   ├── TC_API_03_Get_Favorites_List.png
+│   ├── TC_API_04_Get_Favorites_NoToken.png
+│   ├── TC_API_05_Get_Favorites_InvalidToken.png
+│   ├── TC_API_06_Create_Favorite_Success.png
+│   ├── TC_API_07_Create_Favorite_Duplicate.png
+│   ├── TC_API_08_Create_Favorite_InvalidBody.png
+│   ├── TC_API_09_Get_Favorite_ByID.png
+│   ├── TC_API_10_Get_Favorite_InvalidID.png
+│   ├── TC_API_11_Update_Favorite_Note.png
+│   ├── TC_API_12_Update_Favorite_InvalidNote.png
+│   ├── TC_API_13_Delete_Favorite.png
+│   ├── TC_API_14_Delete_Favorite_InvalidID.png
+│   └── TC_API_15_Response_Structure.png
+├── Test-Documentation
+│   ├── airportgap-api-collection-runner.postman_collection
+│   └── airportgap-api-manual-testing.postman_collection
+├── Test-Documentation
+│   └── AirportGap_API_Testing.xlsx
+└──  README.md
+```
