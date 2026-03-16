@@ -32,6 +32,38 @@ Execution Type: Manual API Testing + Postman Collection Runner
 
 ---
 
+## Test Strategy
+
+The API testing was designed to validate both functional behavior and error handling of the AirportGap API.
+
+The strategy included:
+
+- Authentication validation
+- Authorization validation
+- Positive test scenarios for successful operations
+- Negative test scenarios for invalid inputs and missing tokens
+- Duplicate resource validation
+- Response structure validation
+
+The testing was executed manually using Postman, with additional response validation implemented through Postman test scripts and Collection Runner.
+
+---
+
+## Testing Approach
+
+The API testing included both positive and negative test scenarios:
+
+- Valid authentication
+- Invalid authentication
+- Missing authorization token
+- Invalid authorization token
+- Duplicate resource validation
+- Invalid request body validation
+- Resource retrieval validation
+- Response structure validation
+
+---
+
 ## API Endpoints Tested
 
 - POST /api/tokens
