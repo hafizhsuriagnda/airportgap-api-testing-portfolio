@@ -44,6 +44,8 @@ The strategy included:
 - Negative test scenarios for invalid inputs and missing tokens
 - Duplicate resource validation
 - Response structure validation
+- Postman assertions
+- Collection Runner
 
 The testing was executed manually using Postman, with additional response validation implemented through Postman test scripts and Collection Runner.
 
