@@ -119,7 +119,9 @@ This repository contains:
 
 ## Test Result
 
-All **15 test cases** were executed successfully and the API behaved according to the expected scenarios.
+All 15 test cases were executed successfully, with all endpoints returning expected status codes and response structures.
+
+The API demonstrates stable behavior across authentication and favorites management functionalities, with no defects identified within the tested scope.
 
 ---
 
